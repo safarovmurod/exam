@@ -16,5 +16,8 @@ export const useZustand = create((set) => ({
   })),
    EditZ: (user:any) =>set((state)=>({
    dataZ : state.dataZ.map((el)=>el.id===user.id?user:el)
+  })),
+   AddZ: (user:any) =>set((state)=>({
+   dataZ : [...state.dataZ, user]
   }))
 }))

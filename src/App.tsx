@@ -10,6 +10,7 @@ import { DeleteR } from "./store/counterSlice"
 import { useState } from "react"
 import DialogEdit from "./dialog/DialogEdit"
 import Dialoginfo from "./dialog/Dialoginfo"
+import DialogAdd from "./dialog/DialogAdd"
 
 export default function App() {
   //jotai
@@ -28,6 +29,8 @@ export default function App() {
   })
   // dialog edit
   const [useropen,setUser] = useState(null)
+  // dialog add
+  const [openAdd,setOpenAdd] = useState(false)
   //delete
  function deleteUser(id:number) {
    DeleteJ(id)
@@ -39,7 +42,9 @@ export default function App() {
     <>
     <Dialoginfo info={info} setInfo={setInfo}/>
       <div>
+         <button onClick={()=>setOpenAdd(true)}>add</button>
          <DialogEdit user={useropen}  openUser={setUser}/>
+         <DialogAdd open={openAdd} setOpen={setOpenAdd}/>
          
         <div>
           {user.map((el) => {

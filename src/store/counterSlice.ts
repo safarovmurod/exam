@@ -30,9 +30,12 @@ export const counterSlice = createSlice({
     EditR: (state, {payload}) => {
       state.data = state.data.map((el)=>el.id === payload.id?payload:el)
     },
+    AddR: (state, {payload}) => {
+      state.data = [...state.data, payload]
+    },
   },
 })
 
-export const {DeleteR,EditR} = counterSlice.actions
+export const {DeleteR,EditR,AddR} = counterSlice.actions
 
 export default counterSlice.reducer

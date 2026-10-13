@@ -22,4 +22,7 @@ export const DeleteUserJ =atom(null,(get,set,id)=>{
 export const EditUserJ =atom(null,(get,set,user:User)=>{
     set(dataAtom,get(dataAtom).map((el)=>el.id===user.id?user:el))
 })
+export const AddUserJ =atom(null,(get,set,user:any)=>{
+    set(dataAtom,[...get(dataAtom),user])
+})
     
